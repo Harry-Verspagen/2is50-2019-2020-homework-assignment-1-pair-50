@@ -1,11 +1,11 @@
 # 2is50-2019-2020-ha-1
 
 * Authors: Lars van den Haak and Tom Verhoeff (TU/e)
-* Contributor 1: /replace by your full name/
-* TU/e ID number 1: /replace by your TU/e ID number/
-* Contributor 2: /replace by your full name/
-* TU/e ID number 2: /replace by your TU/e ID number/
-* Date: /replace by date of first modification/
+* Contributor 1: Harry Verspagen
+* TU/e ID number 1: 1484575
+* Contributor 2: Sander Debets
+* TU/e ID number 2: 1252402
+* Date: 04-05-2020
 
 # The Mandelbrot set
 

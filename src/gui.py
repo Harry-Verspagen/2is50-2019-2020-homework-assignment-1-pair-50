@@ -6,11 +6,11 @@ Copyright (c) 2020 - Eindhoven University of Technology, The Netherlands
 
 This software is made available under the terms of the MIT License.
 
-* Contributor 1: ...
-* TU/e ID number 1: ...
-* Contributor 2: ...
-* TU/e ID number 2: ...
-* Date: ...
+* Contributor 1: Harry Verspagen
+* TU/e ID number 1: 1484575
+* Contributor 2: Sander Debets
+* TU/e ID number 2: 1252402
+* Date: 04-05-2020
 """
 from PIL import Image, ImageTk  # type: ignore
 import tkinter as tk

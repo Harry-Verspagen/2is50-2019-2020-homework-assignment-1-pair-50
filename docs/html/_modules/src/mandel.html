@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.mandel &mdash; 2is50-2019-2020-ha-1 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> 2is50-2019-2020-ha-1
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Source Files</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">2is50-2019-2020-ha-1</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.mandel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.mandel</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Program to draw Mandelbrot fractals: the Mandelbrot algorithm.</span>
+
+<span class="sd">Author: Lars van den Haak and Tom Verhoeff</span>
+
+<span class="sd">Copyright (c) 2020 - Eindhoven University of Technology, The Netherlands</span>
+
+<span class="sd">This software is made available under the terms of the MIT License.</span>
+
+<span class="sd">* Contributor 1: Harry Verspagen</span>
+<span class="sd">* TU/e ID number 1: 1484575</span>
+<span class="sd">* Contributor 2: Sander Debets</span>
+<span class="sd">* TU/e ID number 2: 1252402</span>
+<span class="sd">* Date: 04-05-2020</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1">#: The type of 2D points.</span>
+<span class="n">Point</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+
+
+<span class="c1">#: TODO: define this function</span>
+<div class="viewcode-block" id="mandel_seq"><a class="viewcode-back" href="../../mandel.html#src.mandel.mandel_seq">[docs]</a><span class="k">def</span> <span class="nf">mandel_seq</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Point</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Return the mandel sequence for the input point (x, y), using n as upper bound.</span>
+
+<span class="sd">    Assumptions:</span>
+
+<span class="sd">    * start the sequence at (u_0, v_0) = (0, 0)</span>
+<span class="sd">    * The coordinate (x, y) will have mandel number n,</span>
+<span class="sd">      when the sequence starts diverging at (u_n,  v_n)</span>
+
+<span class="sd">    :param x: x-coordinate of the point for which the sequence is computed</span>
+<span class="sd">    :param y: y-coordinate of the point for which the sequence is computed</span>
+<span class="sd">    :param n: upper bound to detect divergence</span>
+<span class="sd">    :return: the mandel sequence for the point (x, y)</span>
+
+<span class="sd">    :examples:</span>
+
+<span class="sd">    &gt;&gt;&gt; mandel_seq(1, 0)</span>
+<span class="sd">    [(0.0, 0.0), (1.0, 0.0), (2.0, 0.0), (5.0, 0.0)]</span>
+<span class="sd">    &gt;&gt;&gt; mandel_seq(0, 0, n = 1)</span>
+<span class="sd">    [(0.0, 0.0), (0.0, 0.0)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[]</span></div>
+
+
+<span class="c1">#: TODO: define this function</span>
+<div class="viewcode-block" id="mandel_number"><a class="viewcode-back" href="../../mandel.html#src.mandel.mandel_number">[docs]</a><span class="k">def</span> <span class="nf">mandel_number</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return the mandel-number of point (x, y).</span>
+
+<span class="sd">    This is the smallest index of the mandel sequence at which u_n^2 + v_n^2 &gt; 4.</span>
+
+<span class="sd">    Assumptions:</span>
+
+<span class="sd">    * the sequence diverges when u_n^2 + v_n^2 &gt; 4</span>
+
+<span class="sd">    :param x: x-coordinate of the point for which the Mandel number is computed</span>
+<span class="sd">    :param y: y-coordinate of the point for which the Mandel number is computed</span>
+<span class="sd">    :param n: upper bound to detect divergence</span>
+<span class="sd">    :return: the mandel-number of point (x, y).</span>
+
+<span class="sd">    :examples:</span>
+
+<span class="sd">    &gt;&gt;&gt; mandel_number(1, 0)</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; mandel_number(0, 0, n = 10)</span>
+<span class="sd">    10</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">0</span></div>
+
+
+<span class="c1">#: The type of colors</span>
+<span class="n">Color</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+<span class="c1">#: The standard color</span>
+<span class="n">STDC</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="c1">#: Black</span>
+<span class="n">BLACK</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">#: Grey</span>
+<span class="n">GREY</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="c1">#: White</span>
+<span class="n">WHITE</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="c1">#: Red</span>
+<span class="n">RED</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">#: Green</span>
+<span class="n">GREEN</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">#: Blue</span>
+<span class="n">BLUE</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+
+<span class="c1">#: TODO: define this function</span>
+<span class="c1">#: TODO: document this</span>
+<div class="viewcode-block" id="convert_pixel"><a class="viewcode-back" href="../../mandel.html#src.mandel.convert_pixel">[docs]</a><span class="k">def</span> <span class="nf">convert_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Point</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<span class="c1">#: TODO: define this function</span>
+<span class="c1">#: TODO: document this</span>
+<div class="viewcode-block" id="generate_mandel_nums"><a class="viewcode-back" href="../../mandel.html#src.mandel.generate_mandel_nums">[docs]</a><span class="k">def</span> <span class="nf">generate_mandel_nums</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+    <span class="k">return</span> <span class="p">[]</span></div>
+
+
+<span class="c1">#: TODO: define this function</span>
+<div class="viewcode-block" id="color_mandel"><a class="viewcode-back" href="../../mandel.html#src.mandel.color_mandel">[docs]</a><span class="k">def</span> <span class="nf">color_mandel</span><span class="p">(</span><span class="n">px</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">py</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">c1</span><span class="p">:</span> <span class="n">Color</span> <span class="o">=</span> <span class="n">GREEN</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Color</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return the colour of the given pixel.</span>
+
+<span class="sd">    Assumptions:</span>
+<span class="sd">    * pixels that that diverge immediately -&gt; BLACK</span>
+<span class="sd">    * pixels that do not diverge after n iterations -&gt; BLACK</span>
+<span class="sd">    * colour scaled based on the squared root of the mandel number</span>
+
+<span class="sd">    :param: px: pixel x-coordinate</span>
+<span class="sd">    :param: py: pixel y-coordinate</span>
+<span class="sd">    :param: n: maximum number of iterations, after which the pixel is coloured BLACK</span>
+<span class="sd">    :return: Color(as a defined Tuple - lines 48) for the input pixel</span>
+
+<span class="sd">    :examples:</span>
+
+<span class="sd">    TODO: doctests</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Tom Verhoeff
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
